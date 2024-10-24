@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+
+This Is Admin DashBoard.
+<span th:text ="${student.getFirstName()}"></span>
+<nav th:fragment="navbar" class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/admin}">Welcome  <span th:text ="${student.getFirstName()}"></span></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a th:href = "@{/admin}" class="btn btn-primary btn-sm mb-3"> Home </a></li>
+            <p>&nbsp;&nbsp;</p>
+            <li><a th:href = "@{/profile}" class="btn btn-primary btn-sm mb-3"> Profile </a></li>
+            <p>&nbsp;&nbsp;</p>
+            <a th:href = "@{/register}" class="btn btn-primary btn-sm mb-3"> Add Student </a>
+            <p>&nbsp;&nbsp;</p>
+            <li><a th:href = "@{/logout}" class="btn btn-primary btn-sm mb-3"> Logout </a></li>
+            <p>&nbsp;&nbsp;</p>
+            <li><a th:href = "@{/contact}" class="btn btn-primary btn-sm mb-3"> Contact </a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container my-2">
+    <h1>Student List</h1>
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>  First Name</th>
+            <th>  Last Name</th>
+            <th>  Email</th>
+            <th>Role</th>
+            <th> Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${listStudents}">
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text ="${student.role}"></td>
+            <td> <a th:href="@{/showFormForUpdate/{id}(id=${student.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteStudent/{id}(id=${student.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

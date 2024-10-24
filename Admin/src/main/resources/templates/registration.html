@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Enter Details</h1>
+    <hr>
+    <h2>Register Student/Mentor</h2>
+    <a th:href = "@{/}" class="btn btn-primary btn-sm mb-3"> Back </a>
+    <form action="#" th:action="@{/saveStudent1}"th:object="${student}"
+          method="post">
+        <label>FirstName</label>
+        <input type="text" th:field="*{firstName}"
+               placeholder="Student First Name" class="form-control mb-4 col-4" required>
+        <label>LastName</label>
+        <input type="text" th:field="*{lastName}"
+               placeholder="Student Last Name" class="form-control mb-4 col-4">
+        <label>Email</label>
+        <input type="text" th:field="*{email}"
+               placeholder="Student Email" class="form-control mb-4 col-4" required>
+        <label>Password</label>
+        <input type="password" th:field="*{password}"
+               placeholder="Password" class="form-control mb-4 col-4" required>
+        <label>Role</label>
+        <select th:field="*{role}" required>
+            <option th:value="'MENTOR'" th:text="MENTOR"></option>
+            <option th:value="'LEARNER'" th:text="LEARNER"></option>
+        </select>
+        <br>
+        <button type="submit" class="btn btn-info col-2"> Save Student</button>
+    </form>
+</div>
+</body>
+</html>

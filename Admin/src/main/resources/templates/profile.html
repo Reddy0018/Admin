@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Student Update System</h1>
+    <hr>
+    <h2>Update Details</h2>
+    <input type="button" value="Go back!" onclick="history.back()" class="btn btn-primary btn-sm mb-3">
+
+    <form action="#" th:action="@{/saveStudent1}" th:object="${student}"
+          method="POST">
+        <input type="hidden" th:field="*{id}" />
+
+        <label>FirstName</label>
+        <input type="text" th:field="*{firstName}"
+               class="form-control mb-4 col-4">
+
+        <label>LastName</label>
+        <input type="text" th:field="*{lastName}"
+               class="form-control mb-4 col-4">
+        <label>Email</label>
+        <input type="text" th:field="*{email}"
+               class="form-control mb-4 col-4">
+        <label>Password</label>
+        <input type="text" th:field="*{password}" style="-webkit-text-security: circle"
+               class="form-control mb-4 col-4">
+        <label>Role</label>
+        <input type="text" th:field="*{role}"
+               class="form-control mb-4 col-4" readonly>
+
+        <button type="submit" class="btn btn-info col-2"> Update Student</button>
+    </form>
+</div>
+</body>
+</html>

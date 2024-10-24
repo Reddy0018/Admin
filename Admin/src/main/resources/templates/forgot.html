@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <h1>Forgot Password</h1>
+    <hr>
+    <form action="#" th:action="@{/forgotsubmit}"th:object="${student}">
+        <table>
+            <tr>
+                <label>Email</label>
+                <input type="email" th:field="*{email}"
+                       class="form-control mb-4 col-4" required>
+            </tr>
+            <tr>
+                <td> <input type="submit"  class="btn btn-primary btn-sm mb-3"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>
